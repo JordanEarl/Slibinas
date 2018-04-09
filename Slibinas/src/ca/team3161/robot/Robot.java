@@ -411,23 +411,21 @@ public class Robot extends TimedRobot
 			if(gameData.charAt(0) == 'L')
 			{
 				if(operation == 0)
-				{
-					operation += driveForward(1400, 0.0, true, frontRightDrive);
-				}
-				if(operation == 1)
-				{
-					resetWheelEncoders();
-					Timer.delay(0.3);
-					operation++;
-				}
-				if(operation == 2)
-				{
-					operation += driveLeft(1600, 0.0, frontRightDrive);
-				}
-				if(operation == 3)
-				{
-					operation += driveForward(2800, 0.0, true, frontRightDrive);
-				}
+		{
+			operation += driveForward(1500, 0.0, true, backLeftDrive);
+		}
+		if(operation == 1)
+		{
+			operation++;
+		}
+		if(operation == 2)
+		{
+			operation += driveLeft(1250, 0.0, backRightDrive);
+		}
+		if(operation == 3)
+		{
+			operation += driveForward(1600, 0.0, true, backLeftDrive);
+		}
 				if(operation == 4)
 				{
 					operation ++;
@@ -445,7 +443,7 @@ public class Robot extends TimedRobot
 				}
 				if(operation == 7)
 				{
-					operation += driveBackward(2200, 0.0, false, frontRightDrive);	
+					operation += driveBackward(2200, 0.0, false, backLeftDrive);	
 				}
 				if(operation == 8)
 				{
@@ -461,11 +459,11 @@ public class Robot extends TimedRobot
 				if(operation == 10)
 				{
 					ClawIntake();
-					operation += driveRight(1700, 0.0, backRightDrive);
+					operation += driveRight(1700, 0.0, backLeftDrive);
 				}
 				if(operation == 11)
 				{
-					operation += driveForward(1700, 0.0, true, frontRightDrive);
+					operation += driveForward(1700, 0.0, true, backLeftDrive);
 				}
 				if(operation == 12)
 				{
@@ -507,17 +505,17 @@ public class Robot extends TimedRobot
 			}else if(gameData.charAt(0) == 'R')
 			{
 				if(operation == 0)
-				{
-					operation += driveForward(1500, 0.0, true, backLeftDrive);
-				}
-				if(operation == 1)
-				{
-					operation += driveRight(2000, 0.0, backRightDrive);
-				}
-				if(operation == 2)
-				{
-					operation += driveForward(1600, 0.0, true, backLeftDrive);
-				}
+		{
+			operation += driveForward(1500, 0.0, true, backLeftDrive);
+		}
+		if(operation == 1)
+		{
+			operation += driveRight(2000, 0.0, backLeftDrive);
+		}
+		if(operation == 2)
+		{
+			operation += driveForward(1600, 0.0, true, backLeftDrive);
+		}
 				if(operation == 3)
 				{
 					operation++;
@@ -1617,11 +1615,11 @@ public class Robot extends TimedRobot
 		}
 		if(operation == 1)
 		{
-			operation += driveRight(2200, 0.0, backRightDrive);
+			operation += driveRight(2000, 0.0, backLeftDrive);
 		}
 		if(operation == 2)
 		{
-			operation += driveForward(2200, 0.0, true, backLeftDrive);
+			operation += driveForward(1600, 0.0, true, backLeftDrive);
 		}
 		if(operation == 3)
 		{
@@ -1704,7 +1702,7 @@ public class Robot extends TimedRobot
 	{
 		if(operation == 0)
 		{
-			operation += driveForward(6100, 0.0, true, backLeftDrive);
+			operation += driveForward(6200, 0.0, true, backLeftDrive);
 		}
 		if(operation == 1)
 		{
@@ -1712,57 +1710,53 @@ public class Robot extends TimedRobot
 		}
 		if(operation == 2)
 		{
-			operation++;
+			operation += driveForward(1500, 0.0, true, backLeftDrive);
 		}
 		if(operation == 3)
 		{
-			operation += driveForward(1000, 0.0, true, backLeftDrive);
+			operation += pidTurnExact(-60.0);
 		}
 		if(operation == 4)
 		{
-			operation += pidTurnExact(-60.0);
-		}
-		if(operation == 5)
-		{
 			operation += elevatorPosition(35000);
 		}
-		if(operation == 6)
+		if(operation == 5)
 		{
 			ClawRotateUp();
 			Timer.delay(0.075);
 			operation++;
 		}
-		if (operation == 7) {
+		if (operation == 6) {
 			ClawStop();
 			Timer.delay(0.1);
 			operation++;
 		}
-		if (operation == 8) {
+		if (operation == 7) {
 			ClawShoot();
 			Timer.delay(0.3);
 			operation++;
 		}
-		if (operation == 9) {
+		if (operation == 8) {
 			ClawStandby();
 			Timer.delay(0.3);
 			operation++;
 		}
-		if(operation == 10)
+		if(operation == 9)
 		{
 			operation += elevatorPosition(1000);
 
 		}
-		if(operation == 11)
+		if(operation == 10)
 		{
 			operation += pidTurnExact(-150);
 		}
-		if(operation == 12)
+		if(operation == 11)
 		{
 			ClawRotateUp();
 			Timer.delay(0.5);
 			operation++;
 		}
-		if(operation == 13)
+		if(operation == 12)
 		{
 			ClawStop();
 			ClawOpen();
@@ -1770,26 +1764,26 @@ public class Robot extends TimedRobot
 			Timer.delay(0.3);
 			operation++;
 		}
-		if(operation == 14)
+		if(operation == 13)
 		{
 			operation += driveForward(2100, -150.0, false, backLeftDrive);
 		}
-		if(operation == 15)
+		if(operation == 14)
 		{
 			ClawClose();
 			ClawStandby();
 			Timer.delay(1.0);
 			operation++;
 		}
-		if(operation == 16)
+		if(operation == 15)
 		{
 			operation += elevatorPosition(30000);
 		}
-		if(operation == 17)
+		if(operation == 16)
 		{
 			operation += driveForward(1000, -150.0, false, backLeftDrive);
 		}
-		if(operation == 18)
+		if(operation == 17)
 		{
 			ClawOpen();
 			operation++;
